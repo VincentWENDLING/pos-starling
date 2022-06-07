@@ -4,7 +4,7 @@ import Category from "./Category"
 import Item from './Item'
 
 import { _Item, _CartItem, _Category } from '../../assets/types'
-
+import { includesItem, getItemIndex } from '../../assets/utils'
 
 const Menu = (props: any) => {
 
@@ -63,11 +63,17 @@ const Menu = (props: any) => {
 
     const addItem = (name: string, price: number, count: number)=>{
         let cartItems: Array<_CartItem> = [...cart]
-        cartItems.push({
-            name: name,
-            price: price,
-            count: count
-        })
+        if (includesItem(cartItems, name))
+        {
+            cartItems[getItemIndex(cart, name)].count++
+        }
+        else {
+            cartItems.push({
+                name: name,
+                price: price,
+                count: count
+            })
+        }
         setCart(cartItems)
     }
 
@@ -87,14 +93,14 @@ const Menu = (props: any) => {
     })
 
     return (
-        <section className="w-8/12 bg-slate-900 flex flex-col gap-2">
+        <section className="w-8/12 bg-slate-900 flex flex-col gap-2 p-2">
             <div id="categories" className="h-1/2 bg-slate-800">
-                <ul className="grid grid-cols-4 gap-2">
+                <ul className="grid grid-cols-4 gap-2 p-2">
                     {listCategories}
                 </ul>
             </div>
             <div id="items" className="h-1/2 bg-slate-800">
-                <ul className="grid grid-cols-4 gap-2">
+                <ul className="grid grid-cols-4 gap-2 p-2">
                     {listItems}
                 </ul>
             </div>
