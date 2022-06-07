@@ -15,7 +15,7 @@ const Cart = (props: any) => {
         cartItems.forEach((item: _CartItem) => {
             if (item.name === name) {
                 if (value === -1) {
-                    item.count = (item.count === 1) ? 1 : item.count--
+                    item.count = (item.count === 1) ? 1 : item.count-1
                 }
                 else item.count++
             }
