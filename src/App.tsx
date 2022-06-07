@@ -1,12 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import Cart from './components/Cart/Cart'
+import Menu from './components/Menu/Menu'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div className="App">
-      Starling
+    <div className="App flex gap-2 h-screen p-2">
+      <Menu />
+      <Cart />
     </div>
   )
 }
