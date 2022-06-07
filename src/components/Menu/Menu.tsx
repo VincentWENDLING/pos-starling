@@ -3,15 +3,8 @@ import { useState } from "react"
 import Category from "./Category"
 import Item from './Item'
 
-type Item = {
-    name: string,
-    price: number
-}
+import { _Item, _CartItem, _Category } from '../../assets/types'
 
-type Category = {
-    name: string,
-    items: Array<Item>
-}
 
 const Menu = (props: any) => {
 
@@ -20,13 +13,13 @@ const Menu = (props: any) => {
 
     let [selectedCategory, setSelectedCategory] = useState("")
 
-    let categories: Array<Category> = [
+    let categories: Array<_Category> = [
         {
             name: "Burgers",
             items: [
                 {
                     name: "Strasburger",
-                    price: 10
+                    price: 10,
                 }
             ]
         },
@@ -68,11 +61,12 @@ const Menu = (props: any) => {
         },
     ]
 
-    const addItem = (name: string, price: number)=>{
-        let cartItems: Array<Item> = [...cart]
+    const addItem = (name: string, price: number, count: number)=>{
+        let cartItems: Array<_CartItem> = [...cart]
         cartItems.push({
             name: name,
-            price: price
+            price: price,
+            count: count
         })
         setCart(cartItems)
     }
