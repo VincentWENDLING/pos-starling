@@ -12,14 +12,18 @@ const Cart = (props: any) => {
     // value is either +1 or -1
     const updateItemCount = (name: string, value: number) => {
         let cartItems:Array<_CartItem> = [...cart]
-        cartItems.forEach((item: _CartItem) => {
+
+        for (let i = cartItems.length-1; i>=0; i--) {
+            let item = cartItems[i]
             if (item.name === name) {
-                if (value === -1) {
-                    item.count = (item.count === 1) ? 1 : item.count-1
-                }
-                else item.count++
+                item.count += value
             }
-        })
+
+            if (item.count === 0) {
+                cartItems.splice(i, 1)
+            }
+        }
+        
         setCart(cartItems)
     }
 
