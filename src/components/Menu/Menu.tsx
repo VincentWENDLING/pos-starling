@@ -13,7 +13,10 @@ type Category = {
     items: Array<Item>
 }
 
-const Menu = () => {
+const Menu = (props: any) => {
+
+    let cart = props.cart
+    let setCart = props.setCart
 
     let [selectedCategory, setSelectedCategory] = useState("")
 
@@ -65,6 +68,15 @@ const Menu = () => {
         },
     ]
 
+    const addItem = (name: string, price: number)=>{
+        let cartItems: Array<Item> = [...cart]
+        cartItems.push({
+            name: name,
+            price: price
+        })
+        setCart(cartItems)
+    }
+
     let listCategories: any = categories.map((category)=>
         <li  className="h-36" key={category.name}><Category name={category.name} setCat={setSelectedCategory}/></li>
     )
@@ -73,9 +85,8 @@ const Menu = () => {
     categories.forEach(category=>{
         if (category.name === selectedCategory) {
             category.items.forEach(item=>{
-                console.log(item)
                 listItems.push(
-                    <li className="h-36" key={item.name}><Item name={item.name} price={item.price}/></li>
+                    <li className="h-36" key={item.name}><Item name={item.name} price={item.price} addItem={addItem}/></li>
                 )
             })
         }
