@@ -4,6 +4,7 @@ export type _Item = {
 }
 
 export type _CartItem = {
+    id: number
     name: string,
     price: number,
     count: number

@@ -6,6 +6,7 @@ import Menu from './components/Menu/Menu'
 function App() {
 
   const [cart, setCart]:any = useState([])
+  const [orderNum, setOrderNum]:any = useState(1)
 
   return (
     <div className="App flex gap-2 h-screen p-2">

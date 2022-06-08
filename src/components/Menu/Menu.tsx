@@ -69,6 +69,7 @@ const Menu = (props: any) => {
         }
         else {
             cartItems.push({
+                id: Math.random(), //ugly too, needs to change
                 name: name,
                 price: price,
                 count: count
