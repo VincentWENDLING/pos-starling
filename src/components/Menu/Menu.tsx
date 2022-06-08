@@ -20,6 +20,10 @@ const Menu = (props: any) => {
                 {
                     name: "Strasburger",
                     price: 10,
+                },
+                {
+                    name: "Bleu",
+                    price: 9,
                 }
             ]
         },
@@ -28,6 +32,10 @@ const Menu = (props: any) => {
             items: [
                 {
                     name: "Canada Dry",
+                    price: 2
+                },
+                {
+                    name: "Coca",
                     price: 2
                 }
             ]
@@ -38,6 +46,10 @@ const Menu = (props: any) => {
                 {
                     name: "Frite BBQ",
                     price: 3
+                },
+                {
+                    name: "Frite Cocktail",
+                    price: 3
                 }
             ]
         },
@@ -46,6 +58,10 @@ const Menu = (props: any) => {
             items: [
                 {
                     name: "Cookie Choco",
+                    price: 3
+                },
+                {
+                    name: "Cookie Peanut Butter",
                     price: 3
                 }
             ]
@@ -56,6 +72,10 @@ const Menu = (props: any) => {
                 {
                     name: "Casquette",
                     price: 10
+                },
+                {
+                    name: "Tablier",
+                    price: 20
                 }
             ]
         },
