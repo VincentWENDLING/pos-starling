@@ -99,7 +99,7 @@ const Menu = (props: any) => {
     }
 
     let listCategories: any = categories.map((category)=>
-        <li  className="h-36" key={category.name}><Category name={category.name} setCat={setSelectedCategory}/></li>
+        <li  className="h-full" key={category.name}><Category name={category.name} setCat={setSelectedCategory}/></li>
     )
 
     let listItems: any = []
@@ -115,12 +115,12 @@ const Menu = (props: any) => {
 
     return (
         <section className="w-8/12 bg-slate-900 flex flex-col gap-2 p-2">
-            <div id="categories" className="h-1/2 bg-slate-800">
-                <ul className="grid grid-cols-4 gap-2 p-2">
+            <div id="categories" className="h-1/6 bg-slate-800">
+                <ul className="w-full h-full grid grid-flow-col auto-cols-fr p-2 gap-2 ">
                     {listCategories}
                 </ul>
             </div>
-            <div id="items" className="h-1/2 bg-slate-800">
+            <div id="items" className="h-5/6 bg-slate-800">
                 <ul className="grid grid-cols-4 gap-2 p-2">
                     {listItems}
                 </ul>

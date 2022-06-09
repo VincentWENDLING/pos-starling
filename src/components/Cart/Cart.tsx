@@ -1,3 +1,5 @@
+import { useState } from "react"
+
 import CartItem from "./CartItem"
 
 import { _CartItem } from "../../assets/types"
@@ -8,6 +10,8 @@ const Cart = (props: any) => {
 
     let cart = props.cart
     let setCart = props.setCart
+
+    const [orderPlace, setOrderPlace]= useState("Sur place")
 
     // value is either +1 or -1
     const updateItemCount = (id: number, value: number) => {
@@ -60,13 +64,28 @@ const Cart = (props: any) => {
         return sum
     }
 
+    
+
     return (
         <section className="h-full w-4/12 bg-slate-900 p-2">
-            <div className="flex justify-center items-center gap-1 h-1/6">
-                <p className="w-1/2 h-full flex justify-center items-center bg-slate-700">Commande n°42</p>
-                <button className="flex justify-center items-center w-1/2 h-full bg-red-800 hover:bg-red-700" onClick={() => setCart([])}>
-                    <img className="h-10" src={TrashCan} alt="Trash can" />
-                </button>
+            <div className="flex flex-col justify-center items-center gap-1 h-1/6">
+                <div className="flex w-full h-1/2 gap-1">
+                    <p className="w-1/2 h-full flex justify-center items-center bg-slate-700">N°42</p>
+                    <button className="flex justify-center items-center w-1/2 h-full bg-red-800 hover:bg-red-700" onClick={() => setCart([])}>
+                        <img className="h-10" src={TrashCan} alt="Trash can" />
+                    </button>
+                </div>
+                <div className="flex w-full h-1/2 justify-between gap-1">
+                    <button className={`w-1/3 ${(orderPlace==="Sur place") ? 'bg-slate-500' : 'bg-slate-300'}`} onClick={()=>setOrderPlace("Sur place")}>
+                        Sur place
+                    </button>
+                    <button className={`w-1/3 ${(orderPlace==="Terrasse") ? 'bg-slate-500' : 'bg-slate-300'}`} onClick={()=>setOrderPlace("Terrasse")}>
+                        Terrasse
+                    </button>
+                    <button className={`w-1/3 ${(orderPlace==="À emporté") ? 'bg-slate-500' : 'bg-slate-300'}`} onClick={()=>setOrderPlace("À emporté")}>
+                        À emporté
+                    </button>
+                </div>
             </div>
             <ul className="h-4/6">
                 {cartItems}
