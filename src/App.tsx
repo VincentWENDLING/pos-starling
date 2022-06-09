@@ -9,9 +9,19 @@ function App() {
   const [orderNum, setOrderNum]:any = useState(1)
 
   return (
-    <div className="App flex gap-2 h-screen p-2">
-      <Menu cart={cart} setCart={setCart}/>
-      <Cart cart={cart} setCart={setCart}/>
+    <div className="App h-screen flex flex-col">
+      <div className="flex gap-2 p-2 h-full">
+        <Menu cart={cart} setCart={setCart}/>
+        <Cart cart={cart} setCart={setCart}/>
+      </div>
+      <div className="text-white h-10">
+        <div>
+          
+        </div>
+        <div>
+
+        </div>
+      </div>
     </div>
   )
 }

@@ -120,7 +120,7 @@ const Menu = (props: any) => {
                     {listCategories}
                 </ul>
             </div>
-            <div id="items" className="h-5/6 bg-slate-800">
+            <div id="items" className="h-5/6 bg-slate-800 ">
                 <ul className="grid grid-cols-4 gap-2 p-2">
                     {listItems}
                 </ul>

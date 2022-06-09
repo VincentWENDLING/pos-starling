@@ -91,10 +91,10 @@ const Cart = (props: any) => {
                 {cartItems}
             </ul>
             <div className="h-1/6">
-                <div className="h-1/2 flex justify-center items-center text-black text-2xl bg-purple-500">
+                <div className="h-1/2 flex justify-center items-center text-on-tertiary-container text-2xl bg-tertiary-container">
                     Total: {getSumCart()}€
                 </div>
-                <button className="text-black text-2xl bg-green-500 h-1/2 w-full" >Checkout</button>
+                <button className="text-on-secondary text-2xl bg-secondary h-1/2 w-full" >Checkout</button>
             </div>
         </section>
     )
