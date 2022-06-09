@@ -70,8 +70,8 @@ const Cart = (props: any) => {
         <section className="h-full w-4/12 bg-slate-900 p-2">
             <div className="flex flex-col justify-center items-center gap-1 h-1/6">
                 <div className="flex w-full h-1/2 gap-1">
-                    <p className="w-1/2 h-full flex justify-center items-center bg-slate-700">N°42</p>
-                    <button className="flex justify-center items-center w-1/2 h-full bg-red-800 hover:bg-red-700" onClick={() => setCart([])}>
+                    <p className="w-1/2 h-full flex justify-center items-center bg-slate-400">N°42</p>
+                    <button className="flex justify-center items-center w-1/2 h-full bg-red-500 hover:bg-red-400" onClick={() => setCart([])}>
                         <img className="h-10" src={TrashCan} alt="Trash can" />
                     </button>
                 </div>
@@ -87,14 +87,14 @@ const Cart = (props: any) => {
                     </button>
                 </div>
             </div>
-            <ul className="h-4/6">
+            <ul className="h-4/6 overflow-scroll">
                 {cartItems}
             </ul>
             <div className="h-1/6">
-                <div className="h-1/2 flex justify-center items-center text-white text-2xl bg-purple-900">
+                <div className="h-1/2 flex justify-center items-center text-black text-2xl bg-purple-500">
                     Total: {getSumCart()}€
                 </div>
-                <button className="text-white text-2xl bg-green-900 h-1/2 w-full" >Checkout</button>
+                <button className="text-black text-2xl bg-green-500 h-1/2 w-full" >Checkout</button>
             </div>
         </section>
     )
