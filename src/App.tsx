@@ -19,7 +19,7 @@ function App() {
           </div>
         )
       }
-      else if (pageSelected === 'menu') {
+      else if (pageSelected === 'paramètres') {
         return (
           <div className="h-full w-full bg-background text-on-background">
             TEXT
@@ -33,7 +33,7 @@ function App() {
       { getCurrentPage() }
       <div className="text-white h-10 w-full flex gap-2 pl-2 pr-2">
           <button className="w-1/2 rounded-lg bg-secondary text-on-secondary" onClick={()=>setPageSelected('caisse')}>Caisse</button>
-          <button className="w-1/2 rounded-lg bg-secondary text-on-secondary" onClick={()=>setPageSelected('menu')}>Menu</button>
+          <button className="w-1/2 rounded-lg bg-secondary text-on-secondary" onClick={()=>setPageSelected('paramètres')}>Menu</button>
       </div>
     </div>
   )

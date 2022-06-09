@@ -90,9 +90,10 @@ const Cart = (props: any) => {
             <ul className="h-4/6 overflow-scroll">
                 {cartItems}
             </ul>
-            <div className="h-1/6">
-                <div className="h-1/2 flex justify-center items-center text-on-tertiary-container text-2xl bg-tertiary-container">
-                    Total: {getSumCart()}€
+            <div className="flex flex-col gap-2 h-1/6">
+                <div className="h-1/2 flex justify-center items-center text-2xl gap-2">
+                    <p className="flex items-center justify-center w-3/4 h-full text-on-tertiary-container bg-tertiary-container">Total: {getSumCart()}€</p>
+                    <button className="w-1/4 h-full text-sm text-on-tertiary-container bg-tertiary-container">Envoyer sans paiement</button>
                 </div>
                 <button className="text-on-secondary text-2xl bg-secondary h-1/2 w-full" >Checkout</button>
             </div>
