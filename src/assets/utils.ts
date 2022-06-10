@@ -13,3 +13,13 @@ export const getItemIndex = (cart: Array<_CartItem>, name: string): number => {
     }
     return -1
 }
+
+
+export const getSumCart = (cart: Array<_CartItem>): number => {
+    let sum:number = 0;
+
+        cart.forEach((item:_CartItem)=>{
+            sum+=(item.price * item.count)
+        })
+    return sum
+}

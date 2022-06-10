@@ -1,8 +1,12 @@
 import { useState } from "react"
 
+import useModal from "../../assets/hooks"
+
 import CartItem from "./CartItem"
+import Checkout from "../Checkout/Checkout"
 
 import { _CartItem } from "../../assets/types"
+import { getSumCart } from "../../assets/utils"
 
 import TrashCan from '../../assets/svg/trash.svg'
 
@@ -11,7 +15,8 @@ const Cart = (props: any) => {
     let cart = props.cart
     let setCart = props.setCart
 
-    const [orderPlace, setOrderPlace]= useState("Sur place")
+    const [orderPlace, setOrderPlace]:any = useState("Sur place")
+    const [isShown, toggle]:any = useModal()
 
     // value is either +1 or -1
     const updateItemCount = (id: number, value: number) => {
@@ -55,17 +60,6 @@ const Cart = (props: any) => {
         </li>
     )
 
-    const getSumCart = ():number => {
-        let sum:number = 0;
-
-        cart.forEach((item:_CartItem)=>{
-            sum+=(item.price * item.count)
-        })
-        return sum
-    }
-
-    
-
     return (
         <section className="h-full w-4/12 bg-slate-900 p-2">
             <div className="flex flex-col justify-center items-center gap-1 h-1/6">
@@ -92,11 +86,12 @@ const Cart = (props: any) => {
             </ul>
             <div className="flex flex-col gap-2 h-1/6">
                 <div className="h-1/2 flex justify-center items-center text-2xl gap-2">
-                    <p className="flex items-center justify-center w-3/4 h-full text-on-tertiary-container bg-tertiary-container">Total: {getSumCart()}€</p>
+                    <p className="flex items-center justify-center w-3/4 h-full text-on-tertiary-container bg-tertiary-container">Total: {getSumCart(cart)}€</p>
                     <button className="w-1/4 h-full text-sm text-on-tertiary-container bg-tertiary-container">Envoyer sans paiement</button>
                 </div>
-                <button className="text-on-secondary text-2xl bg-secondary h-1/2 w-full" >Checkout</button>
+                <button className="text-on-secondary text-2xl bg-secondary h-1/2 w-full" onClick={cart.length > 0 ? toggle : null}>Checkout</button>
             </div>
+            <Checkout isShown={isShown} hide={toggle} cart={cart} setCart={setCart} />
         </section>
     )
 }
