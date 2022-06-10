@@ -44,14 +44,21 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
     
     const pay = ( paymentMethod: string ) => {
 
+
         let enteredAmount_:number = parseInt(enteredAmount)
 
-        setAmountPaid(amountPaid+enteredAmount_)
-        setAmountRemaining(Math.max(0, sumCart-enteredAmount_))
+        if (isNaN(enteredAmount_)){
+            return;
+        } 
 
-        if (enteredAmount > sumCart) {
-            setAmountDue(enteredAmount_-sumCart)
-        }
+
+        let _amountPaid: number = amountPaid+enteredAmount_
+        let _amountRemaining: number = Math.max(0, amountRemaining-_amountPaid)
+        let _amountDue: number = Math.max(0, _amountPaid-sumCart)
+
+        setAmountPaid(_amountPaid)
+        setAmountRemaining(_amountRemaining)
+        setAmountDue(_amountDue)
 
         setEnteredAmount("")
     }
@@ -71,9 +78,6 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
         ReactDOM.createPortal(
             <>
                 <div className="w-screen h-screen fixed top-0 left-0">
-                    <div id="overlay" className="z-10">
-
-                    </div>
                     <div className=" flex flex-col gap-8 w-1/2 h-5/6 m-auto mt-20 bg-slate-700 border-black border-solid border-2 z-20 rounded-2xl">
                         <div className="pt-4 flex items-center">
                             <img className="pl-4 invert w-1/12" src={Back} alt="back icon" onClick={leave}/>
