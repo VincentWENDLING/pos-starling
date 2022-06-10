@@ -45,6 +45,8 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
     const pay = ( paymentMethod: string ) => {
 
 
+        const getRoundedNumber = (number: number): number => { return Number(number.toFixed(2)) }
+
         let enteredAmount_:number = parseFloat(enteredAmount)
 
         if (isNaN(enteredAmount_)){
@@ -56,9 +58,9 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
         let _amountRemaining: number = Math.max(0, amountRemaining-_amountPaid)
         let _amountDue: number = Math.max(0, _amountPaid-sumCart)
 
-        setAmountPaid(_amountPaid)
-        setAmountRemaining(_amountRemaining)
-        setAmountDue(_amountDue)
+        setAmountPaid(getRoundedNumber(_amountPaid))
+        setAmountRemaining(getRoundedNumber(_amountRemaining))
+        setAmountDue(getRoundedNumber(_amountDue))
 
         setEnteredAmount("")
     }
