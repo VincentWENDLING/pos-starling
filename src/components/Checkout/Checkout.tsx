@@ -30,8 +30,8 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
 
             if (str === '.' || str === '.00') return;
 
-            let decimals: string = enteredAmount.split('.')
-            if (decimals.length >= 2) return
+            let decimals: Array<string> = enteredAmount.split('.')
+            if (decimals[1].length >= 2) return
 
         }
 
@@ -45,7 +45,7 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
     const pay = ( paymentMethod: string ) => {
 
 
-        let enteredAmount_:number = parseInt(enteredAmount)
+        let enteredAmount_:number = parseFloat(enteredAmount)
 
         if (isNaN(enteredAmount_)){
             return;
