@@ -83,12 +83,12 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
         ReactDOM.createPortal(
             <>
                 <div className="w-screen h-screen fixed top-0 left-0">
-                    <div className=" flex flex-col gap-8 w-1/2 h-5/6 m-auto mt-20 bg-slate-700 border-black border-solid border-2 z-20 rounded-2xl">
+                    <div className="flex flex-col gap-8 w-1/2 h-[95%] mt-[2.5%] m-auto bg-slate-700 border-black border-solid border-2 rounded-2xl">
                         <div className="pt-4 flex items-center">
                             <img className="pl-4 invert w-1/12" src={Back} alt="back icon" onClick={leave}/>
                             <h1 className="text-4xl underline text-white w-11/12 text-center">Paiement</h1>
                         </div>
-                        <div className="flex flex-col gap-4 mr-auto ml-auto w-4/6 h-full">
+                        <div className="flex flex-col gap-4 mr-auto ml-auto w-5/6 h-full">
                             <ul className="w-full flex flex-col gap-4 p-4 h-2/6 overflow-y-scroll bg-slate-900 rounded-xl">
                                 {cartItems}
                             </ul>
