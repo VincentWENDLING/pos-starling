@@ -18,9 +18,10 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
 
     const [amountPaid, setAmountPaid]: any = useState(0)
     const [amountDue, setAmountDue]: any = useState(0)
-    const [amountRemaining, setAmountRemaining]: any = useState(sumCart)
+    const amountRemaining = Math.max(0, sumCart-amountPaid);
 
-    const [enteredAmount, setEnteredAmount]: any = useState("") 
+
+    const [enteredAmount, setEnteredAmount]: any = useState("")
 
 
     const changeEnteredAmount = (str: string):void => {
@@ -55,11 +56,9 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
 
 
         let _amountPaid: number = amountPaid+enteredAmount_
-        let _amountRemaining: number = Math.max(0, amountRemaining-_amountPaid)
         let _amountDue: number = Math.max(0, _amountPaid-sumCart)
 
         setAmountPaid(getRoundedNumber(_amountPaid))
-        setAmountRemaining(getRoundedNumber(_amountRemaining))
         setAmountDue(getRoundedNumber(_amountDue))
 
         setEnteredAmount("")
@@ -70,7 +69,6 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
             setCart([])
             setAmountDue(0)
             setAmountPaid(0)
-            setAmountRemaining(0)
             setEnteredAmount("")
         }
         hide()

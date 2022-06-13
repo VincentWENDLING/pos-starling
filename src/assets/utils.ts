@@ -16,10 +16,11 @@ export const getItemIndex = (cart: Array<_CartItem>, name: string): number => {
 
 
 export const getSumCart = (cart: Array<_CartItem>): number => {
-    let sum:number = 0;
+  let sum: number = 0;
 
-        cart.forEach((item:_CartItem)=>{
-            sum+=(item.price * item.count)
-        })
-    return sum
-}
+  for (const item of cart) {
+    sum += (item.price * item.count);
+  }
+
+  return sum;
+};
