@@ -10,10 +10,7 @@ import { getSumCart } from "../../assets/utils"
 
 import TrashCan from '../../assets/svg/trash.svg'
 
-const Cart = (props: any) => {
-
-    let cart = props.cart
-    let setCart = props.setCart
+const Cart = ({cart, setCart}: any) => {
 
     const [orderPlace, setOrderPlace]:any = useState("Sur place")
     const [isShown, toggle]:any = useModal()

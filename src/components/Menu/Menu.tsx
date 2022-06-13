@@ -6,10 +6,7 @@ import Item from './Item'
 import { _Item, _CartItem, _Category } from '../../assets/types'
 import { includesItem, getItemIndex } from '../../assets/utils'
 
-const Menu = (props: any) => {
-
-    let cart = props.cart
-    let setCart = props.setCart
+const Menu = ({cart, setCart}: any) => {
 
     let [selectedCategory, setSelectedCategory] = useState("")
 
@@ -99,7 +96,7 @@ const Menu = (props: any) => {
     }
 
     let listCategories: any = categories.map((category)=>
-        <li  className="h-full" key={category.name}><Category name={category.name} setCat={setSelectedCategory}/></li>
+        <li  className="h-full" key={category.name}><Category name={category.name} setCategory={setSelectedCategory}/></li>
     )
 
     let listItems: any = []
