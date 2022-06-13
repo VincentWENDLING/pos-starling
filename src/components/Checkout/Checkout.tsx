@@ -29,7 +29,12 @@ const Checkout = ({isShown, hide, cart, setCart}: any) => {
         if (enteredAmount === '0' && (str !=='.' && str !== '.00')) return;
         if (enteredAmount.includes('.')) {
 
-            if (str === '.' || str === '.00') return;
+            if (enteredAmount.slice(-1)==='.') { // if enterAmount ends with '.', we allow '.00'
+                let tmp:string = enteredAmount.slice(0, -1) // removing last char
+                setEnteredAmount(tmp+str)
+                return 
+            }
+            else if (str === '.' || str === '.00') return;
 
             let decimals: Array<string> = enteredAmount.split('.')
             if (decimals[1].length >= 2) return
